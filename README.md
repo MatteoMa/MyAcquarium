@@ -1,2 +1,2 @@
 # Servizio di gestione degli acquari
-Nome provvisorio: MyAcquarium / MyFish
+Nome servizio: MyAcquarium
