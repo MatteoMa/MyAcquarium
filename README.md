@@ -1,2 +1,1 @@
-# Servizio di gestione degli acquari
-Nome servizio: MyAcquarium
+# Servizio di gestione degli acquari MyAcquarium
