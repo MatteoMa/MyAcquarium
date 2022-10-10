@@ -1,0 +1,18 @@
+#### MYACQUARIUM SPRINGBOOT APP ####
+URL: http://localhost:8444
+
+#### KEYCLOAK ####
+URL: http://localhost:8443
+ADMIN USERNAME/PASSWORD: admin/admin
+TEST USERS USERNAME/PASSWORD: matteoma/matteomapswd - andy90/andy90pswd
+
+#### MYSQL ####
+MYACQUARIUM APP, AGENT, DEVICES MYSQL CONNECTION -> jdbc:mysql://localhost:3306/myacquarium?createDatabaseIfNotExist=true
+MYACQUARIUM MONITORING MYSQL CONNECTION -> jdbc:mysql://localhost:3306/monitoring?createDatabaseIfNotExist=true
+ADMIN USERNAME/PASSWORD: root/root
+
+#### MOSQUITTO MQTT BROKER ####
+URL: ssl://localhost:8883
+
+#### CERTIFICATES ####
+PASSWORD: password

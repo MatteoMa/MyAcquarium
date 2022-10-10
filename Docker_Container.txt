@@ -1,0 +1,52 @@
+############################################################################
+# Creazione e lancio di un container scrivibile "mysql" sull'immagine "mysql:latest" specificata
+# -p -> Mappatura della porta TCP specificata del container alla porta specificata dell'host
+# -e -> Impostazione della variabile d'ambiente specificata
+
+docker run \
+  --name mysql \
+  -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD=root \
+  -d mysql:latest
+
+############################################################################
+# Creazione e lancio di un container scrivibile "keycloak" sull'immagine "quay.io/keycloak/keycloak:latest:latest" specificata
+# -p -> Mappatura della porta TCP specificata del container alla porta specificata dell'host
+# -e -> Impostazione della variabile d'ambiente specificata
+# -v -> Collegamento del file/directory specificato dell'host al file/directory specificato del container
+# $PWD -> Pathname assoluto della directory corrente
+
+docker run \
+  --name keycloak \
+  -p 8443:8443 \
+  -e KEYCLOAK_ADMIN=admin \
+  -e KEYCLOAK_ADMIN_PASSWORD=admin \
+  -e KC_HTTPS_KEY_STORE_FILE=/opt/keycloak/conf/keycloak-keystore.jks \
+  -e KC_HTTPS_KEY_STORE_PASSWORD=password \
+  -e KC_HTTPS_TRUST_STORE_FILE=/opt/keycloak/conf/my-truststore.jks \
+  -e KC_HTTPS_TRUST_STORE_PASSWORD=password \
+  -e KC_HTTPS_CLIENT_AUTH=required \
+  -v $PWD/keycloak-keystore.jks:/opt/keycloak/conf/keycloak-keystore.jks \
+  -v $PWD/my-truststore.jks:/opt/keycloak/conf/my-truststore.jks \
+  quay.io/keycloak/keycloak:latest \
+  start-dev
+  
+############################################################################
+# Creazione e lancio di un container scrivibile "mosquitto" sull'immagine "eclipse-mosquitto:latest" specificata
+# -p -> Mappatura della porta TCP specificata del container alla porta specificata dell'host
+# -v -> Collegamento del file/directory specificato dell'host al file/directory specificato del container
+# $PWD -> Pathname assoluto della directory corrente
+
+docker run -it \
+  --name mosquitto \
+  -p 8883:8883 \
+  -v $PWD/mosquitto.conf:/mosquitto/config/mosquitto.conf \
+  -v /mosquitto/data \
+  -v /mosquitto/log \
+  -v $PWD/ca.crt:/mosquitto/ca_certificates/ca.crt \
+  -v $PWD/server.crt:/mosquitto/certs/server.crt \
+  -v $PWD/server.key:/mosquitto/certs/server.key \
+  -v $PWD/acl_file.txt:/mosquitto/acl/acl_file.txt \
+  eclipse-mosquitto:latest
+  
+############################################################################
