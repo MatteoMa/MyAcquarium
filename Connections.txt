@@ -1,8 +1,8 @@
 #### MYACQUARIUM SPRINGBOOT APP ####
-URL: http://localhost:8444
+URL: https://localhost:8444
 
 #### KEYCLOAK ####
-URL: http://localhost:8443
+URL: https://localhost:8443
 ADMIN USERNAME/PASSWORD: admin/admin
 TEST USERS USERNAME/PASSWORD: matteoma/matteomapswd - andy90/andy90pswd
 
