@@ -1,0 +1,15 @@
+user app
+topic read myacquarium/+/app/#
+
+user agent
+topic read myacquarium/+/agent/#
+topic write myacquarium/+/devices/#
+topic write myacquarium/+/monitoring/#
+
+user devices
+topic read myacquarium/+/devices/#
+topic write myacquarium/+/agent/#
+
+user monitoring
+topic read myacquarium/+/monitoring/#
+topic write myacquarium/+/app/#
